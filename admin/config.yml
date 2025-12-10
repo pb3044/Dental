@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Disable editorial workflow (optional - enable if you want draft/review process)
+# publish_mode: editorial_workflow
+
+media_folder: "blog/images"
+public_folder: "/blog/images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "blog/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Publish Date", widget: "datetime" }
+      - { name: "author", label: "Author", widget: "string", default: "Admin" }
+      - { name: "excerpt", label: "Excerpt", widget: "text", required: false }
+      - { name: "featured_image", label: "Featured Image", widget: "image", required: false }
+      - { name: "body", label: "Content", widget: "markdown" }
